@@ -10,6 +10,7 @@ import {
 } from "@/lib/game";
 import type { GameState, Job } from "@/lib/types";
 import { PersonCard } from "@/components/PersonCard";
+import { VillageMap } from "@/components/VillageMap";
 
 const SAVE_KEY = "kingdoms.save.v1";
 
@@ -158,6 +159,15 @@ export default function Page() {
           label="Pairs"
           value={`${state.people.filter((p) => p.partnerId && p.sex === "F").length}`}
           hint="bear children"
+        />
+      </section>
+
+      <section className="mb-4">
+        <VillageMap
+          people={state.people}
+          wallHp={state.defenses.wallHp}
+          wallMax={state.defenses.wallMax}
+          season={state.season}
         />
       </section>
 
